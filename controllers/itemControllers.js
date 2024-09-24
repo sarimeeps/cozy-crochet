@@ -1,5 +1,6 @@
+const model = require('../models/item');
 
-
-exports.index = (req, res) => {
-    res.render('./item/index');
+exports.display = (req, res) => {
+    let items = model.find();
+    res.render('./item/items', {items});
 };
