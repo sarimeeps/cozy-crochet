@@ -1,69 +1,25 @@
-<%- include('./partials/header.ejs') %>
+<%- include('../partials/header.ejs') %>
         <div class="content-body-2">
+            <% if(items.length) { %>
             <div class="items-list">
                 <ul>
+                    <% items.forEach(item => { %>
                     <li>
-                        <a href="item.html"><img src="assets/item-1.jpg" alt="item-1">
+                        <a href="item.html"><img src="<%=item.image%>" alt="item-1">
                             <div class="caption">
-                                <div class="caption-des">Cat Bus Hat</div>
-                                <div class="caption-cond">Condition: Good</div>
-                                <div class="caption-price">$20.00</div>
-                                <div class="caption-offers">Offers: 0</div>
-                            </div>
-                        </a>
-                    </li> 
-                    <li>
-                        <a href="item.html"><img src="assets/item-2.jpg" alt="item-2">
-                            <div class="caption">
-                                <div class="caption-des">Ghibli Top & Cardigan</div>
-                                <div class="caption-cond">Condition: New</div>
-                                <div class="caption-price">$65.00</div>
+                                <div class="caption-des"><%=item.title%></div>
+                                <div class="caption-cond"><%=item.condition%></div>
+                                <div class="caption-price">$<%=item.price%></div>
                                 <div class="caption-offers">Offers: 0</div>
                             </div>
                         </a>
                     </li>
-                    <li>
-                        <a href="item.html"><img src="assets/item-3.jpg" alt="item-3">
-                            <div class="caption">
-                                <div class="caption-des">Floral Trio Keychain</div>
-                                <div class="caption-cond">Condition: Other</div>
-                                <div class="caption-price">$15.00</div>
-                                <div class="caption-offers">Offers: 0</div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="item.html"><img src="assets/item-4.jpg" alt="item-4">
-                            <div class="caption">
-                                <div class="caption-des">Three Crop Tops</div>
-                                <div class="caption-cond">Condition: New</div>
-                                <div class="caption-price">$45.00</div>
-                                <div class="caption-offers">Offers: 0</div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="item.html"><img src="assets/item-5.jpg" alt="item-5">
-                            <div class="caption">
-                                <div class="caption-des">Daisy Bag</div>
-                                <div class="caption-cond">Condition: Used</div>
-                                <div class="caption-price">$30.00</div>
-                                <div class="caption-offers">Offers: 0</div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="item.html"><img src="assets/item-6.jpg" alt="item-6">
-                            <div class="caption">
-                                <div class="caption-des">Link Plushie</div>
-                                <div class="caption-cond">Condition: New</div>
-                                <div class="caption-price">$40.00</div>
-                                <div class="caption-offers">Offers: 0</div>
-                            </div>
-                        </a>
-                    </li>
+                    <% }) %>
                 </ul>
             </div>
+            <% }else{ %>
+                    <p>There are no items to display</p>
+                <% } %>
         </div>
-<%- include('./partials/footer.ejs') %>
+<%- include('../partials/footer.ejs') %>
         
