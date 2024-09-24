@@ -1,31 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <script src="https://kit.fontawesome.com/d5ff331449.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
-    <title>Cozy Crochet</title>
-</head>
-<body>
-    <div class="container">
-        <div class="navbar">
-            <div class="logo">
-                <a href="index.html"><img src="assets/crochetLogo.jpg" alt="logo"></a>
-            </div>
-            <div class="search-bar">
-                <input type="text" placeholder="Search...">
-            </div>
-            <div class="links">
-                <ul>
-                    <li><a href="items.html">Browse</a></li>
-                    <li><a href="new.html">Sell</a></li>
-                    <li><a href="">Sign Up</a></li>
-                    <li><a href="">Login</a></li>
-                </ul>
-            </div>
-        </div> 
+<%- include('./partials/header.ejs') %>
         <div class="content-body-2">
             <div class="items-list">
                 <ul>
@@ -92,17 +65,5 @@
                 </ul>
             </div>
         </div>
-        <div class="footer">
-            <p class="copyright">Ⓒ Cozy Crochet</p>
-            <div class="socials">
-                <ul>
-                    <li><i class="fa-brands fa-instagram fa-xl"></i></li>
-                    <li><i class="fa-brands fa-facebook fa-xl"></i></li>
-                    <li><i class="fa-brands fa-tiktok fa-xl"></i></li>
-                    <li><i class="fa-brands fa-github fa-xl"></i></li>
-                </ul>
-            </div>
-        </div>
-    </div> 
-</body>
-</html>
+<%- include('./partials/footer.ejs') %>
+        
