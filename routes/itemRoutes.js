@@ -7,4 +7,6 @@ router.get('/', controller.display);
 
 router.get('/new', controller.new);
 
+router.get('/:id', controller.show);
+
 module.exports = router;
