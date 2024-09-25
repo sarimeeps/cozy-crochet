@@ -5,4 +5,6 @@ const router = express.Router();
 
 router.get('/', controller.display);
 
+router.get('/new', controller.new);
+
 module.exports = router;
