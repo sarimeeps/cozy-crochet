@@ -57,7 +57,7 @@ const items = [
         seller: 'Midna',
         condition: 'New',
         price: '40.00',
-        details: "The Hero of Hyrule himself in the plushie flesh! Made with high-quality, soft yarn and stuffed for the perfect huggable feel, this plushie is a delightful addition to any collecton. Whether you're a long-time fan of the series or just looking for a charming and unique gift, this Link plushie is sure to inspire heroic deeds and warm hearts wherever he goes.",
+        details: "The Hero of Hyrule himself in the plushie flesh! Made with high-quality, soft yarn and stuffed for the perfect huggable feel, this plushie is a delightful addition to any collecton. Whether you're a long-time fan of The Legend of Zelda or just looking for a charming and unique gift, this Link plushie is sure to inspire heroic deeds and warm hearts wherever he goes.",
         image: '../images/item-6.jpg',
         active: 'true'
     }
