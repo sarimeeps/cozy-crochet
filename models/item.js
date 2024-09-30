@@ -70,7 +70,6 @@ exports.findById = id => items.find(item => item.id === id);
 exports.save = function(item){
     item.id = uuidv4();
     items.push(item);
-    //FUNCTION NOT COMPLETE
 };
 
 exports.deleteById = function(id){
@@ -81,4 +80,21 @@ exports.deleteById = function(id){
     }else{
         return false;
     }
+}
+
+exports.updateById = function(id, newItem){
+    let item = items.find(item => item.id === id);
+    if(item){
+        item.title = newItem.title;
+        item.details = newItem.details;
+        item.condition = newItem.condition;
+        item.price = newItem.price;
+        if(newItem.image){
+            item.image = newItem.image;
+        }
+        console.log("condition:", newItem.condition);
+        return true;
+    }else{
+        return false
+    } 
 }
