@@ -16,7 +16,7 @@
                             <option value="Other">Other</option>
                         </select>
                         <input type="text" id="title" name="title" placeholder="Title" value="<%=item.title%>" required>
-                        <input type="number" id="price" name="price" placeholder="Price" value="<%=item.price%>" required>
+                        <input type="number" id="price" name="price" placeholder="Price" value="<%=item.price%>" step=".01" required>
                         <input type="text" id="details" name="details" placeholder="Details" value="<%=item.details%>" required>
                         <label for="image-selection" required>Select Image</label>
                         <input type="file" name="image" id="image">
