@@ -78,3 +78,14 @@ exports.update = (req, res, next) => {
             }
     });
 }
+
+exports.delete = (req, res, next) => {
+    let id = req.params.id;
+    if(model.deleteById(id)){
+        res.redirect('/items');
+    }else{
+        let err = new Error('Cannot find a story with ' + id);
+        err.status = 404;
+        next(err);
+    }
+}
