@@ -44,6 +44,7 @@ Navbar styling
     background-color: #651037;
     color: white;
     height: 8%;
+    width: 100%;
 }
 
 .logo img{
@@ -330,7 +331,7 @@ Item Page
     margin-bottom: 20px;
 }
 
-.edit-delete{
+.edit-delete form{
     display: grid;
     grid-template-columns: auto auto;
     width: 40%;

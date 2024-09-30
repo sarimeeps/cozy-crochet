@@ -41,3 +41,40 @@ exports.create = (req, res) => {
         res.redirect('/items')
     }) 
 }
+
+exports.edit = (req, res, next) => {
+    let id = req.params.id;
+    let item = model.findById(id);
+    console.log("edit controller used");
+    if(item){
+        res.render('./item/edit', {item});
+    } else {
+        let err = new Error('Cannot find an item with id', + id);
+        err.status = 404;
+        next(err);
+    }
+}
+
+exports.update = (req, res, next) => {
+    upload(req, res, (err) => {
+        if(err){
+            res.status(400);
+        }
+        let item = req.body;
+        let id = req.params.id;
+        
+        let editItem = model.findById(id);
+        console.log("image: ", editItem.image);
+            if(req.file){
+                item.image = '/images/' + req.file.filename;
+            }
+            if(model.updateById(id, item)){
+                console.log("Image: ",item.image);
+                res.redirect('/items/' + id);
+            }else{
+                let err = new Error('Cannot find a story with id' + id);
+                err.status = 404;
+                next(err);
+            }
+    });
+}
