@@ -191,23 +191,27 @@ Items page
     position: relative;
     width: 100%;
     min-height: calc(100vh - 50px); 
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     padding-bottom: 60px;
 }
 
 .items-list {
     position: relative; 
-    width: 99%;
+    width: 100%;
     min-height: 500px;
-    left: 10px;
-    top: 30px;
+    padding-left: 10px;
+    padding-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .items-list li{
     border: 5px solid white;
     background-color: white;
-    width: 13.3%;
+    width: 200px;
     height: 400px;
     margin-top: 40px;
 }

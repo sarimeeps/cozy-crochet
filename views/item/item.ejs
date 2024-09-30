@@ -14,7 +14,7 @@
                     <div class="edit-delete">
                         <form>
                         <div class="edit-item"><button type="submit" formmethod="GET" formaction="/items/<%=item.id%>/edit">Edit <i class="fa-regular fa-pen-to-square"></i></button></div>
-                        <div class="delete-item"><button>Delete <i class="fa-solid fa-trash"></i></button></div>
+                        <div class="delete-item"><button type="submit" formmethod="POST" formaction="/items/<%=item.id%>?_method=DELETE">Delete <i class="fa-solid fa-trash"></i></button></div>
                         </form>
                     </div>
                 </div>
