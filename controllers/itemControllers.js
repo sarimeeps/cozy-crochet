@@ -6,7 +6,7 @@ const { upload } = require('../middleware/fileUpload');
 exports.display = (req, res) => {
     let items = model.find(); 
     items.sort((a, b) => a.price - b.price); 
-    if (req.query.search) {
+    if (req.query.search !== undefined) {
         const search = req.query.search.toLowerCase();
         items = items.filter(item => {
             const itemName = item.name ? item.name.toLowerCase() : "";
@@ -32,7 +32,7 @@ exports.show = (req, res, next) => {
         res.render('./item/item', {item});
         console.log('using show export controller');
     } else {
-        let err = new Error('Cannot find a story with id ' + id);
+        let err = new Error('Cannot find an item with ID ' + id);
         err.status = 404;
         next(err);
     }
@@ -58,7 +58,7 @@ exports.edit = (req, res, next) => {
     if(item){
         res.render('./item/edit', {item});
     } else {
-        let err = new Error('Cannot find an item with id', + id);
+        let err = new Error('Cannot find an item with ID ' + id);
         err.status = 404;
         next(err);
     }
@@ -80,7 +80,7 @@ exports.update = (req, res, next) => {
                 console.log("Image: ",item.image);
                 res.redirect('/items/' + id);
             }else{
-                let err = new Error('Cannot find a story with id' + id);
+                let err = new Error('Cannot find an item with ID ' + id);
                 err.status = 404;
                 next(err);
             }
@@ -92,7 +92,7 @@ exports.delete = (req, res, next) => {
     if(model.deleteById(id)){
         res.redirect('/items');
     }else{
-        let err = new Error('Cannot find a story with ' + id);
+        let err = new Error('Cannot find an item with ID' + id);
         err.status = 404;
         next(err);
     }
