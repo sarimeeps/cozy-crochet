@@ -4,8 +4,17 @@ const { upload } = require('../middleware/fileUpload');
 
 // show items on items page
 exports.display = (req, res) => {
-    let items = model.find();
-    res.render('./item/items', {items});
+    let items = model.find(); 
+    items.sort((a, b) => a.price - b.price); 
+    if (req.query.search) {
+        const search = req.query.search.toLowerCase();
+        items = items.filter(item => {
+            const itemName = item.name ? item.name.toLowerCase() : "";
+            const itemDetails = item.details ? item.details.toLowerCase() : "";
+            return itemName.includes(search) || itemDetails.includes(search);
+        });
+    }
+    res.render('./item/items', { items });
     console.log('using display controller');
 };
 
@@ -62,7 +71,6 @@ exports.update = (req, res, next) => {
         }
         let item = req.body;
         let id = req.params.id;
-        
         let editItem = model.findById(id);
         console.log("image: ", editItem.image);
             if(req.file){
