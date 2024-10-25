@@ -359,7 +359,7 @@ Item Page
 .edit-item{
     grid-column: 1/2;
     border: 1px solid blue;
-    border-radius: 10%;
+    border-radius: 10px;
     background-color: blue;
     color: white;
     font-weight: bolder;
@@ -374,7 +374,7 @@ Item Page
 .delete-item{
     grid-column: 2/3;
     border: 1px solid red;
-    border-radius: 10%;
+    border-radius: 10px;
     color: red;
     font-weight: bolder;
     width: 70px;
