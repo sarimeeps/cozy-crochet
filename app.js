@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const itemRoutes = require('./routes/itemRoutes');
 const methodOverride = require('method-override');
+const mongoose = require('mongoose');
 
 const app = express();
 
@@ -9,6 +10,17 @@ const app = express();
 let port = 3000;
 let host = 'localhost';
 app.set('view engine', 'ejs');
+
+const mongUri = 'mongodb+srv://admin:admin@cozy-crochet.fcuxe.mongodb.net/cozy_crochet?retryWrites=true&w=majority&appName=cozy-crochet'
+
+// connect to database
+mongoose.connect(mongUri)
+.then(()=>{
+    app.listen(port, host, () =>{
+        console.log('Server is running on port', port);
+    });
+})
+.catch(err => console.log('Database connection error:', err.message));
 
 //middleware
 app.use(express.static('public'));
@@ -40,6 +52,3 @@ app.use((err, req, res, next) => {
     res.render('error', {error: err});
 });
 
-app.listen(port, host, () =>{
-    console.log('Server is running on port', port);
-});
