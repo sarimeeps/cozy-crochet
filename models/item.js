@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const itemSchema = new Schema({
     title: {type: String, required: [true, 'Title is required']},
-    seller: {type: String, required: [true, 'Seller is required']},
+    seller: {type: Schema.Types.ObjectId, ref: 'User'},
     condition: {type: String, required: [true, 'Condition is required']},
     price: {type: Number, required: [true, 'Price is required']},
     details: {type: String, required: [true, 'Details are required']},

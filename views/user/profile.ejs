@@ -1,0 +1,35 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="profile-container">
+    <h2>Welcome, <%=user.firstName%></h2>
+    
+    <% if(items.length){ %>
+        <p>Your Listings</p>
+        <table class="items-table">
+            <tr>
+                <th>Item</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            <% items.forEach(item => { %>
+                <tr>
+                    <td><a href="/items/<%=item.id%>"><%= item.title %></a></td>
+                    <td><%= item.active %></td>
+                    <td>
+                        <div class="edit-delete">
+                            <form>
+                            <div class="edit-item"><button type="submit" formmethod="GET" formaction="/items/<%=item.id%>/edit">Edit <i class="fa-regular fa-pen-to-square"></i></button></div>
+                            <div class="delete-item"><button type="submit" formmethod="POST" formaction="/items/<%=item.id%>?_method=DELETE">Delete <i class="fa-solid fa-trash"></i></button></div>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                
+            <% }) %>
+        </table> 
+    <% } else { %>
+        <p>You have no items for sale</p>
+    <% } %>
+</div>
+
+<%- include('../partials/footer.ejs') %>
